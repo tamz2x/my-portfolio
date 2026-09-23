@@ -31,3 +31,50 @@ body {
   font-weight: 500;
 }
 .btn-light-custom:hover { background: #e5e5e5; color: #000; }
+
+.text-gradient {
+  background: linear-gradient(135deg, #a0a0a0 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.max-w-lg {
+  max-width: 600px;
+}
+
+.tracking-widest {
+  letter-spacing: 0.15em;
+}
+
+.hover-text-white:hover {
+  color: #ffffff !important;
+}
+
+.transition-colors {
+  transition: color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.project-card-img {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card-img {
+  transform: scale(1.05);
+}
+
+/* Project Card Hover Effects */
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Zoom effect on hover for the contained image */
+.project-card:hover .project-card-image {
+  transform: scale(1.08);
+}

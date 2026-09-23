@@ -19,6 +19,19 @@ export default function EditProjectClient({
 
   useEffect(() => { loadImages() }, [])
 
+  // Helper function to trigger the homepage refresh
+  async function refreshHomepage() {
+    try {
+      await fetch('/api/revalidate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: '/' })
+      })
+    } catch (err) {
+      console.error('Failed to revalidate homepage:', err)
+    }
+  }
+
   async function loadImages() {
     const { data } = await supabase
       .from('project_images')
@@ -31,6 +44,7 @@ export default function EditProjectClient({
   async function updateField(field: keyof Project, value: any) {
     setProject({ ...project, [field]: value })
     await supabase.from('projects').update({ [field]: value }).eq('id', projectId)
+    refreshHomepage() // Refresh homepage after text updates
   }
 
   async function handleUpload(files: FileList) {
@@ -48,6 +62,7 @@ export default function EditProjectClient({
       if (inserted) setImages((prev) => [...prev, inserted as ProjectImage])
     }
     setUploading(false)
+    refreshHomepage() // Refresh homepage after new image upload
   }
 
   async function removeImage(img: ProjectImage) {
@@ -58,6 +73,7 @@ export default function EditProjectClient({
     }
     await supabase.from('project_images').delete().eq('id', img.id)
     setImages((prev) => prev.filter((i) => i.id !== img.id))
+    refreshHomepage() // Refresh homepage after image removal
   }
 
   async function setCover(url: string) {
@@ -67,6 +83,7 @@ export default function EditProjectClient({
   async function deleteProject() {
     if (!confirm('Delete project and all its images?')) return
     await supabase.from('projects').delete().eq('id', projectId)
+    refreshHomepage() // Refresh homepage after deletion
     window.location.href = '/admin/dashboard'
   }
 

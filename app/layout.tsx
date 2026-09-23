@@ -1,6 +1,6 @@
 import './styles/bootstrap.min.css'
 import './globals.css'
-
+import { Toaster } from 'react-hot-toast';
 import Script from 'next/script'
 
 export const metadata = {
@@ -16,8 +16,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="/bootstrap/icons/bootstrap-icons.min.css" />
       </head>
       <body>
+        <Toaster 
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: '#1a1a1a',
+              color: '#fff',
+              border: '1px solid rgba(255,255,255,0.1)',
+            },
+          }}
+        />
         {children}
-        <Script src="/bootstrap/bootstrap.bundle.min.js" strategy="afterInteractive" />
       </body>
     </html>
   )

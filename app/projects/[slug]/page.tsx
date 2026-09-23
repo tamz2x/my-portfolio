@@ -24,20 +24,36 @@ export default async function ProjectPage({
       <main className="container py-5" style={{ paddingTop: '7rem' }}>
         <h1 className="display-4 fw-bold">{project.title}</h1>
         <p className="text-muted-custom fs-5 mt-3">{project.description}</p>
-        <div className="d-flex flex-column gap-4 mt-5">
-          {images.map((img) => (
-            <div
-              key={img.id}
-              className="position-relative rounded-4 overflow-hidden card-dark"
-              style={{ aspectRatio: '16/9' }}
+        <div className="d-flex flex-column gap-4">
+          {images.map((img, index) => (
+            <div 
+              key={img.id} 
+              className="position-relative" 
+              style={{ 
+                width: '100%', 
+                backgroundColor: '#0f0f0f',
+                borderRadius: '12px',
+                padding: '16px',
+              }}
             >
               <Image
                 src={img.src}
                 alt={img.caption || ''}
-                fill
-                sizes="100vw"
-                style={{ objectFit: 'cover' }}
+                width={1600}
+                height={1000}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
+                preload={index === 0}
+                style={{ 
+                  width: '100%', 
+                  height: 'auto',
+                  objectFit: 'contain',
+                }}
               />
+              {img.caption && (
+                <p className="text-secondary small mt-3 mb-0 text-center">
+                  {img.caption}
+                </p>
+              )}
             </div>
           ))}
         </div>

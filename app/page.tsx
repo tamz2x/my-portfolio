@@ -16,8 +16,8 @@ export default async function Home() {
         <h2 className="display-5 fw-bold mb-5">Selected Work</h2>
         <div className="row g-4">
           {projects.map((p) => (
-            <div key={p.id} className="col-12 col-md-6 col-lg-4">
-              <ProjectCard project={p as any} />
+            <div key={p.id} className="col-12 col-md-6 col-lg-4 d-flex">
+              <ProjectCard project={p} />
             </div>
           ))}
           {!projects.length && <p className="text-muted-custom">No projects yet.</p>}
