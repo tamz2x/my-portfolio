@@ -4,8 +4,8 @@ import './globals.css'
 import Script from 'next/script'
 
 export const metadata = {
-  title: 'My Portfolio',
-  description: 'Modern portfolio built with Next.js and Bootstrap',
+  title: 'Mac Studio — Portfolio',
+  description: 'Designer & Developer crafting digital experiences',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

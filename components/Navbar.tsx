@@ -11,7 +11,7 @@ export default function Navbar() {
       borderBottom: '1px solid var(--border)',
     }}>
       <div className="container">
-        <Link href="/" className="navbar-brand fw-bold text-white">YOUR_NAME</Link>
+        <Link href="/" className="navbar-brand fw-bold text-white">MACS Studio</Link>
         <button className="navbar-toggler border-0 text-white" onClick={() => setOpen(!open)}>
           <i className={`bi ${open ? 'bi-x-lg' : 'bi-list'} fs-4`}></i>
         </button>
