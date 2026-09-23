@@ -6,10 +6,18 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/projects/${project.slug}`} className="text-decoration-none text-white">
       <div className="project-card">
-        <div className="position-relative overflow-hidden rounded-4 card-dark" style={{ aspectRatio: '4/3' }}>
+        <div
+          className="position-relative overflow-hidden rounded-4 card-dark"
+          style={{ aspectRatio: '4/3' }}
+        >
           {project.cover && (
-            <Image src={project.cover} alt={project.title} fill
-              sizes="(max-width:768px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+            <Image
+              src={project.cover}
+              alt={project.title}
+              fill
+              sizes="(max-width:768px) 100vw, 33vw"
+              style={{ objectFit: 'cover', background: '#141414' }}
+            />
           )}
         </div>
         <h3 className="h5 fw-semibold mt-3 mb-1">{project.title}</h3>
