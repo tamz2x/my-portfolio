@@ -28,6 +28,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         {children}
       </body>
+          <Script 
+      src="/bootstrap/bootstrap.bundle.min.js" 
+      strategy="afterInteractive" 
+    />
     </html>
   )
 }

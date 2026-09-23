@@ -91,3 +91,13 @@ body {
   color: #a0a0ff !important;
   transition: color 0.3s ease;
 }
+
+body {
+  padding-top: 70px; /* offset for fixed navbar */
+}
+
+@media (max-width: 991px) {
+  body {
+    padding-top: 70px;
+  }
+}
