@@ -1,37 +1,39 @@
-import './styles/bootstrap.min.css'
-import './globals.css'
-import { Toaster } from 'react-hot-toast';
+import type { Metadata } from 'next'
 import Script from 'next/script'
+import './globals.css'
 
-export const metadata = {
-  title: 'Mac Studio — Portfolio',
-  description: 'Designer & Developer crafting digital experiences',
+export const metadata: Metadata = {
+  title: 'MACS Studio',
+  description: 'Portfolio — Crafting digital experiences',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <head>
-        {/* Icon font CSS — plain link, fine in public/ */}
-        <link rel="stylesheet" href="/bootstrap/icons/bootstrap-icons.min.css" />
+        {/* Local Bootstrap CSS from /public/bootstrap/ */}
+        <link 
+          rel="stylesheet" 
+          href="/bootstrap/bootstrap.min.css" 
+        />
+        {/* Bootstrap Icons */}
+        <link 
+          rel="stylesheet" 
+          href="/bootstrap/icons/bootstrap-icons.min.css" 
+        />
       </head>
       <body>
-        <Toaster 
-          position="bottom-right"
-          toastOptions={{
-            style: {
-              background: '#1a1a1a',
-              color: '#fff',
-              border: '1px solid rgba(255,255,255,0.1)',
-            },
-          }}
-        />
         {children}
+        {/* Local Bootstrap JS for mobile toggle, dropdowns, etc */}
+        <Script 
+          src="/bootstrap/bootstrap.bundle.min.js" 
+          strategy="afterInteractive" 
+        />
       </body>
-          <Script 
-      src="/bootstrap/bootstrap.bundle.min.js" 
-      strategy="afterInteractive" 
-    />
     </html>
   )
 }

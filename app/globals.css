@@ -1,36 +1,33 @@
+/* ============================================
+   GLOBAL DARK THEME
+   ============================================ */
+
 :root {
-  --bg: #0a0a0a;
-  --surface: #141414;
-  --border: rgba(255, 255, 255, 0.08);
-  --muted: #8a8a8a;
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-card: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent: #a0a0ff;
+  --border-subtle: rgba(255, 255, 255, 0.05);
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
-  background: var(--bg);
-  color: #f5f5f5;
-  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary);
+  padding-top: 70px; /* offset for fixed navbar */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.card-dark {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-}
-
-.text-muted-custom { color: var(--muted) !important; }
-
-.project-card img { transition: transform 0.6s ease; }
-.project-card:hover img { transform: scale(1.05); }
-
-.btn-light-custom {
-  background: #fff;
-  color: #000;
-  border: none;
-  padding: 0.65rem 1.25rem;
-  border-radius: 0.75rem;
-  font-weight: 500;
-}
-.btn-light-custom:hover { background: #e5e5e5; color: #000; }
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
 
 .text-gradient {
   background: linear-gradient(135deg, #a0a0a0 0%, #ffffff 100%);
@@ -39,14 +36,25 @@ body {
   background-clip: text;
 }
 
-.max-w-lg {
-  max-width: 600px;
+.text-muted-custom {
+  color: var(--text-secondary) !important;
 }
 
 .tracking-widest {
   letter-spacing: 0.15em;
 }
 
+.max-w-lg {
+  max-width: 600px;
+}
+
+/* ============================================
+   LINK & TRANSITION UTILITIES
+   ============================================ */
+
+.hover-text-white {
+  transition: color 0.3s ease;
+}
 .hover-text-white:hover {
   color: #ffffff !important;
 }
@@ -55,49 +63,112 @@ body {
   transition: color 0.3s ease;
 }
 
+/* ============================================
+   CARD STYLES
+   ============================================ */
+
+.card-dark {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+}
+
+/* ============================================
+   PROJECT CARD HOVER
+   ============================================ */
+
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
-.project-card-img {
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-card-img {
-  transform: scale(1.05);
-}
-
-/* Project Card Hover Effects */
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
-}
-
-/* Zoom effect on hover for the contained image */
 .project-card:hover .project-card-image {
   transform: scale(1.08);
 }
 
-/* Contact Card Hover */
+.project-card-image {
+  transition: transform 0.5s ease;
+}
+
+/* ============================================
+   CONTACT CARD HOVER
+   ============================================ */
+
 .contact-card:hover {
   transform: translateY(-6px);
   border-color: rgba(255, 255, 255, 0.15) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(100, 100, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(100, 100, 255, 0.2);
   background-color: #1a1a1a !important;
 }
 
 .contact-card:hover .bi {
-  color: #a0a0ff !important;
+  color: var(--accent) !important;
   transition: color 0.3s ease;
 }
 
-body {
-  padding-top: 70px; /* offset for fixed navbar */
+/* ============================================
+   BOOTSTRAP OVERRIDES (Dark Mode)
+   ============================================ */
+
+body,
+.navbar-dark {
+  background-color: var(--bg-primary) !important;
 }
 
-@media (max-width: 991px) {
-  body {
-    padding-top: 70px;
-  }
+.bg-dark {
+  background-color: var(--bg-card) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+/* Form controls */
+.form-control.bg-dark {
+  background-color: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.form-control.bg-dark:focus {
+  background-color: #1a1a1a !important;
+  border-color: rgba(100, 100, 255, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(100, 100, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* Buttons */
+.btn-light {
+  background-color: #ffffff;
+  color: #0a0a0a;
+  border: none;
+}
+.btn-light:hover {
+  background-color: #e0e0e0;
+  color: #0a0a0a;
+}
+
+.btn-outline-secondary {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+.btn-outline-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.btn-light-custom {
+  background-color: #ffffff;
+  color: #0a0a0a;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.btn-light-custom:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
 }
