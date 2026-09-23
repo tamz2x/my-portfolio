@@ -41,7 +41,7 @@ export default function Hero() {
 
               <div className="d-flex gap-3">
                 <a href="#work" className="btn btn-light btn-lg px-4 rounded-pill fw-medium">
-                  View Work
+                  View My Works
                 </a>
                 <a href="#contact" className="btn btn-outline-secondary btn-lg px-4 rounded-pill text-white border-secondary">
                   Contact Me

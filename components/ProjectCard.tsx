@@ -5,7 +5,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/types";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ 
+  project, 
+  preload = false 
+}: { 
+  project: Project
+  preload?: boolean 
+}) {
   const hasCover = project.cover && project.cover.trim() !== "";
 
   return (
@@ -33,9 +39,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="position-relative overflow-hidden flex-shrink-0"
             style={{ 
               width: '100%',
-              aspectRatio: '1 / 1',    // <-- Square
+              aspectRatio: '1 / 1',
               backgroundColor: '#111',
-              position: 'relative',    // <-- REQUIRED for next/image fill
+              position: 'relative',
             }}
           >
             {hasCover ? (
@@ -44,6 +50,8 @@ export default function ProjectCard({ project }: { project: Project }) {
                 alt={project.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 992px) 50vw, 33vw"
+                preload={preload}
+                loading={preload ? "eager" : "lazy"}
                 style={{ 
                   objectFit: 'cover',
                   objectPosition: 'top',

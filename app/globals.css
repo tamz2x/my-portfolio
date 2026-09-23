@@ -78,3 +78,16 @@ body {
 .project-card:hover .project-card-image {
   transform: scale(1.08);
 }
+
+/* Contact Card Hover */
+.contact-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(100, 100, 255, 0.2);
+  background-color: #1a1a1a !important;
+}
+
+.contact-card:hover .bi {
+  color: #a0a0ff !important;
+  transition: color 0.3s ease;
+}
