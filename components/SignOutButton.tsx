@@ -9,7 +9,7 @@ export default function SignOutButton() {
     <button className="btn btn-outline-secondary btn-sm"
       onClick={async () => {
         await supabase.auth.signOut()
-        router.push('/admin/login')
+        router.push('/')
       }}>Sign out</button>
   )
 }
